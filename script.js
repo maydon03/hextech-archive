@@ -21,11 +21,11 @@ function toast(msg){const el=$("#toast");el.textContent=msg;el.classList.add("sh
 function updateSecrets(){$("#secretCount").textContent=`${discovered.size} / 5`;$("#secretSlots").innerHTML=Array.from({length:5},(_,i)=>`<span class="${discovered.has(i+1)?"found":""}">${discovered.has(i+1)?"✧":"?"}</span>`).join("");if(discovered.size===5)$("#secretModal .modal-inner h2").textContent="Keeper of the Archive";}
 function render(){
 const q=search.value.trim().toLowerCase();
-filters.innerHTML=categories.map(c=>`<button class="${category===c?"active":""}" data-category="${c}">${c}</button>`).join("");
+filters.innerHTML=categories.map(c=>`<button class="filter ${category===c?"active":""}" data-category="${c}">${c}</button>`).join("");
 const matches=guides.filter(g=>(category==="All"||g.cat===category)&&`${g.title} ${g.summary} ${g.steps.join(" ")}`.toLowerCase().includes(q));
 $("#articleCount").textContent=`${matches.length} GUIDES`;
 empty.hidden=matches.length>0;
-results.innerHTML=matches.map(g=>`<article class="guide" id="${g.slug}"><div class="guide-top"><span class="guide-category">${g.cat}</span><button class="share" data-share="${g.slug}" title="Copy direct link">↗ Share</button></div><h3>${g.title}</h3><p>${g.summary}</p><details ${location.hash==="#"+g.slug?"open":""}><summary>VIEW TROUBLESHOOTING STEPS <span>＋</span></summary><ol>${g.steps.map(s=>`<li>${s}</li>`).join("")}</ol>${g.note?`<p class="warning">⚠ ${g.note}</p>`:""}<a href="https://support-leagueoflegends.riotgames.com/" target="_blank" rel="noopener">Riot Support ↗</a></details></article>`).join("");
+results.innerHTML=matches.map(g=>`<article class="article guide" id="${g.slug}"><div class="article-header"><div class="article-meta"><span class="tag">${g.cat.toUpperCase()}</span><button class="copy-link share" data-share="${g.slug}" title="Copy direct link">↗ COPY LINK</button></div><h3>${g.title}</h3><p class="summary">${g.summary}</p></div><details class="guide-details" ${location.hash==="#"+g.slug?"open":""}><summary>VIEW TROUBLESHOOTING STEPS <span class="chevron">＋</span></summary><div class="answer"><h4>RECOMMENDED STEPS</h4><ol>${g.steps.map(s=>`<li>${s}</li>`).join("")}</ol>${g.note?`<p class="warning">⚠ ${g.note}</p>`:""}<a href="https://support-leagueoflegends.riotgames.com/" target="_blank" rel="noopener">OFFICIAL RIOT SUPPORT ↗</a></div></details></article>`).join("");
 if(q==="666"||q==="veigar")unlock(3,"The Tiny Master of Evil");
 }
 filters.addEventListener("click",e=>{const b=e.target.closest("[data-category]");if(b){category=b.dataset.category;render();}});
