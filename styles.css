@@ -30,3 +30,122 @@
 .guide-details .answer a{display:inline-block;margin-top:9px;color:#79d8e5}
 .secret-slots .found{background:#283d44;border-color:#bda46a}
 @media(max-width:740px){.article-header{padding:20px}.guide-details>summary{padding:16px 20px}.guide-details .answer{padding:5px 20px 20px}.article h3{font-size:18px}}
+
+/* v1.2: optional secret puzzles and a playful wandering Scuttle */
+.riddles{display:grid;gap:10px;margin:20px 0;text-align:left}
+.riddle{border:1px solid rgba(200,170,110,.28);background:rgba(8,20,33,.68);padding:13px 16px;border-radius:7px}
+.riddle-head{display:flex;justify-content:space-between;gap:12px;color:#c8aa6e;font-size:.8rem;letter-spacing:.05em}
+.riddle p{color:#b9b4a7;font-size:.88rem;line-height:1.6;margin:8px 0 0;font-style:italic}
+.scuttle{position:fixed;z-index:35;border:1px solid #c8aa6e;border-radius:50%;background:#102738;box-shadow:0 0 16px #23b9cc88;width:56px;height:56px;font-size:29px;cursor:pointer;transition:left .19s ease,top .19s ease,transform .2s}
+.scuttle:hover{transform:rotate(-12deg) scale(1.1)}
+.scuttle[hidden]{display:none}
+@media(max-width:600px){.riddle-head{font-size:.72rem}.scuttle{width:48px;height:48px;font-size:25px}}
+
+/* v1.3 constellation discovery */
+.star-trigger{display:block;margin:8px auto 0;background:transparent;border:0;color:#8bd8ee;font-size:18px;cursor:pointer;text-shadow:0 0 12px #31c9e7;transition:transform .2s,opacity .2s;opacity:.6}
+.star-trigger:hover,.star-trigger:focus-visible{opacity:1;transform:scale(1.35)}
+.star-inner{max-width:560px!important}
+.star-field{height:300px;max-width:440px;margin:18px auto;position:relative;border:1px solid #4b6680;border-radius:12px;background:radial-gradient(ellipse at 50% 45%,#173454,#071321 75%);box-shadow:inset 0 0 35px #0008;overflow:hidden}
+.star-field:before{content:'✦    ·     ✧      ·     ✦       ·      ✧';position:absolute;top:18%;left:5%;font-size:12px;letter-spacing:19px;color:#b7e6ff55;pointer-events:none}
+#starLines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.constellation-star{position:absolute;transform:translate(-50%,-50%);border:1px solid #a6d5e5;border-radius:50%;background:#14324a;color:#e5faff;width:38px;height:38px;font-size:15px;cursor:pointer;box-shadow:0 0 15px #3ab9e47a}
+.constellation-star.connected{background:#c8aa6e;color:#071321;box-shadow:0 0 20px #c8aa6e}
+.star-field.complete{box-shadow:inset 0 0 35px #51d9ee55,0 0 25px #51d9ee66}
+.star-reset{background:#11283b;color:#e7d8b5;border:1px solid #c8aa6e;border-radius:6px;padding:10px 15px;cursor:pointer}
+#starStatus{text-align:center;color:#d5c7a9}
+/* v2 · The Six Legends */
+body.modal-open{overflow:hidden}
+.modal{z-index:60;overflow-y:auto;align-items:safe center}
+.modal-inner{max-height:min(92vh,900px);overflow-y:auto;scrollbar-color:#745f3b #0e2332}
+#secretModal .modal-inner{max-width:670px;text-align:left}
+#secretModal .modal-inner>h2,#secretModal .modal-inner>.eyebrow{text-align:center}
+#secretModal .modal-inner>p{text-align:center}
+#secretModal .modal-inner>small{display:block;text-align:center;margin-top:15px}
+.secret-slots{flex-wrap:wrap}
+.secret-slots span{min-width:42px;text-align:center;border-radius:5px}
+.riddle-head{align-items:center;flex-wrap:wrap}
+.riddle-head span:last-child{font-size:10px;color:#a6c2c6}
+.hint-toggle,.subtle-btn{border:1px solid #5a7481;background:#102b3c;color:#a7d8e4;padding:8px 11px;margin-top:10px;border-radius:4px;cursor:pointer;font-size:10px;letter-spacing:1px}
+.hint-toggle:hover,.subtle-btn:hover{border-color:var(--gold);color:var(--gold)}
+.riddle .hint-text{color:#8ee3dc;background:#14383b;padding:12px;border-left:2px solid #5ad9c3;font-style:normal}
+.gold-btn{border:1px solid #ebca80;background:linear-gradient(130deg,#785c32,#392d21);color:#fff2d5;padding:12px 18px;border-radius:5px;cursor:pointer;letter-spacing:1px;font-size:11px;font-weight:700;transition:transform .2s,box-shadow .2s}
+.gold-btn:hover{transform:translateY(-2px);box-shadow:0 5px 25px #c8a56855}
+.danger-btn{border:1px solid #785153;background:#24191f;color:#efb6a8;padding:11px 15px;border-radius:5px;cursor:pointer;display:block;margin:20px auto 0;font-size:11px;letter-spacing:1px}
+.danger-btn:hover{background:#4a2529}
+.final-call{text-align:center;border:1px solid #c8a568;margin:24px 0 0;padding:24px;background:radial-gradient(ellipse at center,#394334,#0d1b23 78%);border-radius:8px;animation:finalGlow 4s ease-in-out infinite}
+.final-call h3{color:#f5dca3}
+@keyframes finalGlow{50%{box-shadow:0 0 32px #c8a56855}}
+.world-secret{position:absolute;z-index:3;border:0;background:transparent;cursor:pointer;font-size:20px;opacity:.25;filter:drop-shadow(0 0 4px currentColor);transition:opacity .25s,transform .25s}
+.world-secret:hover,.world-secret:focus-visible{opacity:1;transform:scale(1.25)}
+.viego-mark{color:#5bffb2;bottom:35px;right:8%;font-size:25px}
+.pyke-mark{color:#ff5a6d;left:3%;top:110px}
+.ornn-mark{color:#ffab4f;right:10%;top:20px}
+.graves-mark{color:#dbbb77;right:6%;top:22px;font-size:27px}
+/* Position each secret in a different region of the existing page. */
+#viegoMark{position:absolute;top:auto;bottom:auto;left:auto;right:8%;margin-top:0}
+#pykeMark{position:absolute;top:auto;bottom:auto;left:3%;right:auto}
+#ornnMark{position:absolute;top:auto;bottom:auto;left:auto;right:20%}
+#gravesMark{position:absolute;top:auto;bottom:auto;left:auto;right:5%}
+/* JS will place these at their themed section coordinates, independent of page length. */
+.puzzle-inner{max-width:600px;text-align:center}
+.puzzle-inner h2{color:#e9c98a}
+#puzzleStatus,#finalStatus{min-height:24px;color:#83d6de;font-size:13px}
+.mini-caption{font-size:12px;color:#b3c2c7}
+.heart-board{height:170px;display:grid;place-items:center;position:relative;border:1px solid #3a735d;border-radius:10px;background:radial-gradient(circle,#184e3b,#071e22 65%);margin:18px 0}
+.heart-target{font-size:112px;color:rgba(99,255,175,calc(.12 + var(--heart-fill,0) * .8));text-shadow:0 0 calc(4px + var(--heart-fill,0) * 35px) #5ff7a8;transition:all .4s;animation:heartBeat 2s ease-in-out infinite}
+.heart-board.restored{box-shadow:0 0 65px #53ffa05e}
+@keyframes heartBeat{50%{transform:scale(1.09)}}
+.fragment-row,.forge-tools,.chest-dials,.reward-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.heart-piece,.forge-tool,.chest-dial{min-width:66px;min-height:55px;border:1px solid #5f9e85;border-radius:7px;background:#14352e;color:#b9ffdb;cursor:pointer;font-size:19px;transition:transform .2s,box-shadow .2s}
+.heart-piece:hover,.forge-tool:hover,.chest-dial:hover{transform:translateY(-3px);box-shadow:0 0 17px #5affac66}
+.heart-piece.placed,.forge-tool.used{opacity:.5;cursor:default}
+.pyke-list{border:1px solid #6d3441;background:linear-gradient(135deg,#1d1d24,#112d31);padding:20px 14px;display:grid;gap:12px;border-radius:5px;margin:18px 0}
+.pyke-name{border:1px solid #5a4745;background:#241d25;color:#f1a8a6;cursor:pointer;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;letter-spacing:1px}
+.pyke-name small{font-size:9px;color:#e5b66e}
+.pyke-name.struck span{text-decoration:line-through;text-decoration-color:#e2445a;text-decoration-thickness:3px;opacity:.55}
+.forge-anvil{height:155px;display:flex;align-items:center;justify-content:center;position:relative;font-size:84px;color:#ffc57d;background:radial-gradient(ellipse,#5b3023,#1c1e25 70%);border-radius:8px;margin:18px 0;transition:filter .5s}
+.forge-fire{font-size:45px;position:absolute;bottom:3px;right:30%;animation:forgeFire 1.5s infinite alternate}
+@keyframes forgeFire{to{transform:translateY(-8px) scale(1.12)}}
+.forge-anvil.forged{filter:brightness(2.1) drop-shadow(0 0 20px #ffb861)}
+.forge-tool{border-color:#bc7d50;background:#35231d;color:#ffd3a3;font-size:13px;padding:12px}
+.treasure-chest{border:3px solid #967144;border-radius:15px;background:linear-gradient(#604222 0 28%,#2b241b 28%);padding:24px 16px;margin:18px 0;box-shadow:inset 0 0 30px #000b,0 10px 30px #0008}
+.chest-lid{color:#e4c88c;font-family:Cinzel,serif;font-size:16px;letter-spacing:2px;margin-bottom:22px}
+.chest-dial{border-color:#c8a568;background:#171f25;color:#f3d28d;font-size:27px}
+.chest-key{color:#ddcba4;font-size:12px;line-height:1.8;margin-top:22px}
+.treasure-chest.unlocked{box-shadow:0 0 65px #ffd55b99,inset 0 0 35px #ffc43a55;animation:chestOpen 1s ease}
+@keyframes chestOpen{50%{transform:scale(1.04);filter:brightness(1.8)}}
+.shake{animation:shake .35s ease}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+#revealModal{background:#01060af2}
+.reveal-inner{--reveal-color:#58cbdc;position:relative;width:min(780px,95vw);min-height:420px;overflow:hidden;border:1px solid var(--reveal-color);background:radial-gradient(ellipse at 60% 40%,color-mix(in srgb,var(--reveal-color) 26%,#071421),#071421 70%);box-shadow:0 0 85px color-mix(in srgb,var(--reveal-color) 36%,transparent);display:flex;align-items:center;justify-content:space-evenly;padding:35px;gap:24px}
+.reveal-inner .close{z-index:4}
+.reveal-inner img{height:360px;max-width:43%;object-fit:cover;object-position:top center;mask-image:linear-gradient(to bottom,#000 78%,transparent);filter:drop-shadow(0 0 28px var(--reveal-color));z-index:1}
+.reveal-copy{position:relative;z-index:2;max-width:350px;text-align:center}
+.reveal-copy h2{font-size:clamp(36px,6vw,65px);color:var(--reveal-color);font-family:Cinzel,serif;margin:18px 0;text-shadow:0 0 22px var(--reveal-color)}
+.reveal-copy p{color:#eee1ca;font-size:15px;line-height:1.8;margin-bottom:28px}
+.reveal-light{position:absolute;inset:-50%;pointer-events:none;background:conic-gradient(from 30deg,transparent 0 25%,color-mix(in srgb,var(--reveal-color) 35%,transparent) 40%,transparent 50% 80%,color-mix(in srgb,var(--reveal-color) 20%,transparent) 90%);animation:revealSpin 9s linear infinite}
+@keyframes revealSpin{to{transform:rotate(360deg)}}
+#revealModal.animate .reveal-inner{animation:revealPop .7s cubic-bezier(.16,1,.3,1)}
+#revealModal.animate .reveal-copy{animation:revealCopy .85s ease both}
+@keyframes revealPop{from{opacity:0;transform:scale(.8);filter:blur(12px)}to{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes revealCopy{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.final-inner{max-width:680px}
+.final-core{font-size:100px;color:#70e0ef;text-shadow:0 0 25px #4cc9df;animation:heartBeat 2s infinite}
+.final-core.awaken{animation:finalAwaken 1.5s ease forwards}
+@keyframes finalAwaken{50%{transform:scale(1.8) rotate(90deg);filter:brightness(2)}to{transform:scale(1);filter:brightness(3)}}
+.final-progress{display:flex;justify-content:center;gap:9px;margin:14px auto 22px}
+.final-progress span{border:1px solid #886e46;padding:10px;min-width:37px;color:#f5d28a}
+.final-sigils{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:430px;margin:auto}
+.final-sigil{display:flex;flex-direction:column;align-items:center;gap:6px;padding:15px 8px;border:1px solid #b39861;border-radius:6px;background:#142b35;color:#f5db9e;cursor:pointer;font-size:28px}
+.final-sigil small{font-size:11px;color:#b9cad0}
+.final-sigil:disabled{opacity:.35;cursor:default}
+.victory-emblem{font-size:100px;color:#f6d384;text-shadow:0 0 40px #e8c05c;animation:heartBeat 3s infinite}
+.legend-title{color:#e8c88c;font-size:25px}
+.reward-actions{margin-top:20px}
+body.legendary{--bg:#0d0d0b;--panel:#211c14;--panel2:#292217;--gold:#f0c879;--blue:#e0a85c;--line:#705734}
+body.legendary .topbar,body.legendary footer{background:#100f0d}
+body.legendary .hero{background:radial-gradient(ellipse at top,#5c421b55,#080909 68%)}
+body.legendary .article{background:linear-gradient(135deg,#292219,#111515);border-color:#75603d}
+body.legendary .searchbox{background:#201c16;border-color:#e6b65c}
+@media(max-width:600px){.modal{padding:12px}.modal-inner{padding:36px 20px 22px;max-height:94vh}.reveal-inner{flex-direction:column;min-height:380px;padding:38px 15px 24px}.reveal-inner img{height:210px;max-width:70%}.reveal-copy h2{margin:8px 0;font-size:36px}.reveal-copy p{margin:8px 0 20px}.secret-slots{gap:5px}.secret-slots span{padding:9px}.riddle-head{font-size:11px}.pyke-name{padding:12px 8px;font-size:12px}.pyke-name small{font-size:8px}.final-sigils{gap:6px}.final-sigil{font-size:23px}.final-sigil small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
